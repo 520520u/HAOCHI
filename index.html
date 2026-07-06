@@ -130,6 +130,7 @@
 
         .footer a { color: #6f5fb4; text-decoration: none; }
         .footer a:hover { text-decoration: underline; }
+        .footer-contact { margin-top: 0.35rem; }
     </style>
 </head>
 <body>
@@ -176,6 +177,7 @@
 
             <div class="footer">
                 <p id="footer1">&copy; 2026 HAOCHI. All rights reserved.</p>
+                <p class="footer-contact"><span id="footer-contact-label">Contact:</span> <a href="mailto:info@520apps.com">info@520apps.com</a></p>
                 <p><a href="privacy.html" id="footer-privacy">Privacy Policy</a></p>
             </div>
         </div>
@@ -199,6 +201,7 @@
                 downloadBtn: "Download on App Store",
                 privacyBtn: "Privacy Policy",
                 footer1: "© 2026 HAOCHI. All rights reserved.",
+                footerContact: "Contact:",
                 footerPrivacy: "Privacy Policy"
             },
             es: {
@@ -217,6 +220,7 @@
                 downloadBtn: "Descargar en App Store",
                 privacyBtn: "Política de Privacidad",
                 footer1: "© 2026 HAOCHI. Todos los derechos reservados.",
+                footerContact: "Contacto:",
                 footerPrivacy: "Política de Privacidad"
             },
             zh: {
@@ -235,6 +239,7 @@
                 downloadBtn: "在 App Store 下载",
                 privacyBtn: "隐私政策",
                 footer1: "© 2026 HAOCHI. 版权所有。",
+                footerContact: "联系：",
                 footerPrivacy: "隐私政策"
             }
         };
@@ -267,6 +272,7 @@
             document.getElementById('download-btn').textContent = t.downloadBtn;
             document.getElementById('privacy-btn').textContent = t.privacyBtn;
             document.getElementById('footer1').textContent = t.footer1;
+            document.getElementById('footer-contact-label').textContent = t.footerContact;
             document.getElementById('footer-privacy').textContent = t.footerPrivacy;
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             if (button) button.classList.add('active');
