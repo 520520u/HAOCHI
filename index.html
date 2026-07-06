@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">HAOCHI - Secure Browser</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #b8a9d9 0%, #8b7ec8 45%, #6f5fb4 100%);
+            min-height: 100vh;
+        }
+
+        .container { max-width: 820px; margin: 0 auto; padding: 2rem; }
+
+        .card {
+            background: white;
+            border-radius: 22px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 20px 40px rgba(52, 39, 88, 0.14);
+            text-align: center;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #c4b5e8 0%, #7d6bb8 100%);
+            border-radius: 28px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 0.02em;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 3rem);
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, #6f5fb4 0%, #9b8ad4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle { font-size: 1.15rem; color: #666; margin-bottom: 2rem; }
+
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.92);
+            border: 2px solid #7d6bb8;
+            color: #6f5fb4;
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            margin: 0 0.2rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.25s ease;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: #7d6bb8;
+            color: white;
+        }
+
+        .description {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            color: #444;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .feature {
+            padding: 1.25rem;
+            background: #f7f4fc;
+            border-radius: 16px;
+            border-left: 4px solid #8b7ec8;
+        }
+
+        .feature h3 { color: #6f5fb4; margin-bottom: 0.65rem; font-size: 1rem; }
+
+        .actions { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 0.95rem 1.75rem;
+            border-radius: 999px;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(111, 95, 180, 0.25); }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #8b7ec8 0%, #6f5fb4 100%);
+            color: white;
+        }
+
+        .btn-secondary { background: #6c757d; color: white; }
+
+        .footer {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+            color: #777;
+            font-size: 0.92rem;
+        }
+
+        .footer a { color: #6f5fb4; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="language-selector">
+        <button class="lang-btn active" onclick="changeLanguage('en', this)">EN</button>
+        <button class="lang-btn" onclick="changeLanguage('es', this)">ES</button>
+        <button class="lang-btn" onclick="changeLanguage('zh', this)">中文</button>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="logo">H</div>
+            <h1>HAOCHI</h1>
+            <p class="subtitle" id="subtitle">Secure Web Browser</p>
+
+            <div class="description">
+                <p id="description1"><strong>HAOCHI</strong> is a privacy-focused browser with user-defined access credentials, a VPN-verified secure reader, and a separate quick-browse mode.</p>
+                <p id="description2">The app helps users browse with optional network checks before opening protected content, while keeping access keys on the device.</p>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <h3 id="feature1-title">🔐 Personal Access Keys</h3>
+                    <p id="feature1-desc">You choose your own library code and quick-browse PIN during setup.</p>
+                </div>
+                <div class="feature">
+                    <h3 id="feature2-title">🛡️ VPN-Verified Reader</h3>
+                    <p id="feature2-desc">The secure reader opens only after network and VPN checks succeed.</p>
+                </div>
+                <div class="feature">
+                    <h3 id="feature3-title">⚡ Quick Browse Mode</h3>
+                    <p id="feature3-desc">Use your PIN for a standard in-app browser without the secure gate.</p>
+                </div>
+                <div class="feature">
+                    <h3 id="feature4-title">🔒 Local Privacy</h3>
+                    <p id="feature4-desc">Access credentials are stored on your device. We do not operate user accounts.</p>
+                </div>
+            </div>
+
+            <div class="actions">
+                <a href="#" class="btn btn-primary" id="download-btn">Download on App Store</a>
+                <a href="privacy.html" class="btn btn-secondary" id="privacy-btn">Privacy Policy</a>
+            </div>
+
+            <div class="footer">
+                <p id="footer1">&copy; 2026 HAOCHI. All rights reserved.</p>
+                <p><a href="privacy.html" id="footer-privacy">Privacy Policy</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                title: "HAOCHI - Secure Browser",
+                subtitle: "Secure Web Browser",
+                description1: "<strong>HAOCHI</strong> is a privacy-focused browser with user-defined access credentials, a VPN-verified secure reader, and a separate quick-browse mode.",
+                description2: "The app helps users browse with optional network checks before opening protected content, while keeping access keys on the device.",
+                feature1Title: "🔐 Personal Access Keys",
+                feature1Desc: "You choose your own library code and quick-browse PIN during setup.",
+                feature2Title: "🛡️ VPN-Verified Reader",
+                feature2Desc: "The secure reader opens only after network and VPN checks succeed.",
+                feature3Title: "⚡ Quick Browse Mode",
+                feature3Desc: "Use your PIN for a standard in-app browser without the secure gate.",
+                feature4Title: "🔒 Local Privacy",
+                feature4Desc: "Access credentials are stored on your device. We do not operate user accounts.",
+                downloadBtn: "Download on App Store",
+                privacyBtn: "Privacy Policy",
+                footer1: "© 2026 HAOCHI. All rights reserved.",
+                footerPrivacy: "Privacy Policy"
+            },
+            es: {
+                title: "HAOCHI - Navegador Seguro",
+                subtitle: "Navegador Web Seguro",
+                description1: "<strong>HAOCHI</strong> es un navegador orientado a la privacidad con credenciales definidas por el usuario, un lector seguro verificado por VPN y un modo de navegación rápida independiente.",
+                description2: "La app ayuda a navegar con comprobaciones de red opcionales antes de abrir contenido protegido, manteniendo las claves de acceso en el dispositivo.",
+                feature1Title: "🔐 Claves personales",
+                feature1Desc: "Tú eliges tu código de biblioteca y tu PIN de navegación rápida durante la configuración.",
+                feature2Title: "🛡️ Lector con VPN",
+                feature2Desc: "El lector seguro se abre solo cuando las comprobaciones de red y VPN son correctas.",
+                feature3Title: "⚡ Navegación rápida",
+                feature3Desc: "Usa tu PIN para un navegador integrado sin la puerta de seguridad.",
+                feature4Title: "🔒 Privacidad local",
+                feature4Desc: "Las credenciales se guardan en tu dispositivo. No gestionamos cuentas de usuario.",
+                downloadBtn: "Descargar en App Store",
+                privacyBtn: "Política de Privacidad",
+                footer1: "© 2026 HAOCHI. Todos los derechos reservados.",
+                footerPrivacy: "Política de Privacidad"
+            },
+            zh: {
+                title: "HAOCHI - 安全浏览器",
+                subtitle: "安全网页浏览器",
+                description1: "<strong>HAOCHI</strong> 是一款注重隐私的浏览器，支持用户自定义访问凭据、经 VPN 验证的安全阅读器，以及独立的快速浏览模式。",
+                description2: "应用在打开受保护内容前可进行可选的网络检查，访问密钥保存在设备本地。",
+                feature1Title: "🔐 个人访问密钥",
+                feature1Desc: "在初始设置中由您自行选择图书馆代码和快速浏览 PIN。",
+                feature2Title: "🛡️ VPN 验证阅读器",
+                feature2Desc: "仅在网络和 VPN 检查通过后才会打开安全阅读器。",
+                feature3Title: "⚡ 快速浏览模式",
+                feature3Desc: "使用 PIN 进入标准应用内浏览器，无需安全门控流程。",
+                feature4Title: "🔒 本地隐私",
+                feature4Desc: "访问凭据保存在您的设备上。我们不运营用户账户系统。",
+                downloadBtn: "在 App Store 下载",
+                privacyBtn: "隐私政策",
+                footer1: "© 2026 HAOCHI. 版权所有。",
+                footerPrivacy: "隐私政策"
+            }
+        };
+
+        function detectLanguage() {
+            const saved = localStorage.getItem('haochi-language');
+            if (saved && translations[saved]) return saved;
+            const browserLang = navigator.language || navigator.userLanguage || 'en';
+            if (browserLang.startsWith('zh')) return 'zh';
+            if (browserLang.startsWith('es')) return 'es';
+            return 'en';
+        }
+
+        function changeLanguage(lang, button) {
+            if (!translations[lang]) return;
+            const t = translations[lang];
+            document.title = t.title;
+            document.getElementById('page-title').textContent = t.title;
+            document.getElementById('subtitle').textContent = t.subtitle;
+            document.getElementById('description1').innerHTML = t.description1;
+            document.getElementById('description2').textContent = t.description2;
+            document.getElementById('feature1-title').textContent = t.feature1Title;
+            document.getElementById('feature1-desc').textContent = t.feature1Desc;
+            document.getElementById('feature2-title').textContent = t.feature2Title;
+            document.getElementById('feature2-desc').textContent = t.feature2Desc;
+            document.getElementById('feature3-title').textContent = t.feature3Title;
+            document.getElementById('feature3-desc').textContent = t.feature3Desc;
+            document.getElementById('feature4-title').textContent = t.feature4Title;
+            document.getElementById('feature4-desc').textContent = t.feature4Desc;
+            document.getElementById('download-btn').textContent = t.downloadBtn;
+            document.getElementById('privacy-btn').textContent = t.privacyBtn;
+            document.getElementById('footer1').textContent = t.footer1;
+            document.getElementById('footer-privacy').textContent = t.footerPrivacy;
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            if (button) button.classList.add('active');
+            localStorage.setItem('haochi-language', lang);
+            document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : lang;
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const lang = detectLanguage();
+            const buttons = document.querySelectorAll('.lang-btn');
+            let active = buttons[0];
+            buttons.forEach(btn => {
+                const label = btn.textContent.trim();
+                if ((lang === 'zh' && label === '中文') || (lang === 'es' && label === 'ES') || (lang === 'en' && label === 'EN')) {
+                    active = btn;
+                }
+            });
+            changeLanguage(lang, active);
+        });
+    </script>
+</body>
+</html>

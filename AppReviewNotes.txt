@@ -1,0 +1,69 @@
+HAOCHI — Notes for App Review (English)
+==========================================
+
+Paste the section below into App Store Connect → App Review Information → Notes.
+
+
+--- BEGIN COPY ---
+
+HAOCHI is a secure browser app with two access modes:
+
+1) Secure Reader (8-character library access code)
+   - Requires an active VPN on the review device
+   - Runs a Network Gate check before opening the protected reader
+
+2) Quick Browse (4-digit PIN)
+   - Standard in-app browser
+   - Does NOT require VPN
+
+IMPORTANT: The app ships with NO preconfigured credentials. Reviewers must create their own keys on first launch.
+
+STEP-BY-STEP REVIEW INSTRUCTIONS
+--------------------------------
+
+A) First launch — create your own credentials
+1. Install and open HAOCHI on a clean device or after deleting any previous install.
+2. The initial setup flow appears automatically.
+3. Choose ANY credentials you prefer (examples below are suggestions only):
+   - Library access code: exactly 8 letters or numbers (example: REVIEW01)
+   - Quick Browse PIN: exactly 4 digits (example: 1234)
+   - Confirm the PIN when prompted
+4. Tap Save and Continue to finish setup.
+
+B) Test Quick Browse (no VPN required)
+1. On the welcome screen, enter your 4-digit Quick Browse PIN.
+2. Tap Continue.
+3. The standard in-app browser opens.
+4. You can navigate to any normal HTTPS website to verify browsing works.
+
+C) Test Secure Reader (VPN required — core security feature)
+1. On the iOS review device, connect ANY active VPN (Apple VPN configuration or a third-party VPN app such as NordVPN, ExpressVPN, etc.).
+2. Return to HAOCHI and enter your 8-character library access code on the welcome screen.
+3. Tap Continue.
+4. The Network Gate screen appears and checks:
+   - VPN connection
+   - Network location
+   - Secure channel
+5. When all checks pass, tap Open Reader.
+6. The protected reader opens and can load allowed web content.
+
+D) If Network Gate does not pass
+- Ensure a VPN is connected and active before step C2.
+- Tap Retry on the Network Gate screen after the VPN is connected.
+- If needed, disconnect and reconnect the VPN, then retry.
+
+E) Additional features to verify (optional)
+- Settings (slider icon on welcome screen): change or reset access keys
+- Reader toolbar: navigation, tools, and security controls
+- App supports iPhone and iPad
+
+PRIVACY / SUPPORT URLS
+--------------------
+Marketing page: https://520520u.github.io/HAOCHI/
+Privacy Policy: https://520520u.github.io/HAOCHI/privacy.html
+
+No demo account is provided because access is entirely user-defined on the device.
+
+Thank you for reviewing HAOCHI.
+
+--- END COPY ---
